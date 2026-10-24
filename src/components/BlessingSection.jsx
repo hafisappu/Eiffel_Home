@@ -1,5 +1,5 @@
 import React from 'react';
-import { Share2, ArrowUp, Heart } from 'lucide-react';
+import { ArrowUp, Heart } from 'lucide-react';
 import { useInView, usePrefersReducedMotion } from '../hooks/useInView';
 import {
   ArabesqueDivider,
@@ -73,7 +73,6 @@ const CrescentArchMark = ({ className = "w-8 h-8" }) => (
  * - Ends with a small crescent/arch-inspired decorative mark
  */
 export const BlessingSection = ({
-  onOpenShare,
   residenceName = INVITATION_CONFIG.residenceName,
   city = INVITATION_CONFIG.city
 }) => {
@@ -250,17 +249,6 @@ export const BlessingSection = ({
             isRevealed ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {onOpenShare && (
-            <button
-              type="button"
-              onClick={onOpenShare}
-              className="luxury-btn-secondary inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#072d24]/80 hover:bg-[#0b3e32] border border-[#d4b274]/30 text-[#fcecd2] text-xs font-medium tracking-wider uppercase cursor-pointer"
-            >
-              <Share2 className="w-3.5 h-3.5 text-[#d4b274]" />
-              <span>Share Invitation</span>
-            </button>
-          )}
-
           <button
             type="button"
             onClick={scrollToTop}

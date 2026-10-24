@@ -7,10 +7,8 @@ import { EventDetailsSection } from './components/EventDetailsSection';
 import { LocationSection } from './components/LocationSection';
 import { RsvpSection } from './components/RsvpSection';
 import { BlessingSection } from './components/BlessingSection';
-import { ShareModal } from './components/ShareModal';
 
 function App() {
-  const [isShareOpen, setIsShareOpen] = useState(false);
   const [isUnveiled, setIsUnveiled] = useState(false);
 
   const handleOpenInvitation = () => {
@@ -28,7 +26,7 @@ function App() {
 
       {/* 2. Navigation Bar (Only visible once the invitation has been unveiled) */}
       {isUnveiled && (
-        <Navbar onOpenShare={() => setIsShareOpen(true)} />
+        <Navbar />
       )}
 
       {/* 3. Main Digital Invitation Content (Begins at "You Are Cordially Invited") */}
@@ -50,12 +48,9 @@ function App() {
           <RsvpSection />
 
           {/* Section 6: Closing Blessing & Footer */}
-          <BlessingSection onOpenShare={() => setIsShareOpen(true)} />
+          <BlessingSection />
         </main>
       )}
-
-      {/* Share Modal Dialog */}
-      <ShareModal isOpen={isShareOpen} onClose={() => setIsShareOpen(false)} />
     </div>
   );
 }

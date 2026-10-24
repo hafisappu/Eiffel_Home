@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Share2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { EiffelEmblem } from './GeometricPattern';
 import { AudioAmbience } from './AudioAmbience';
 import { INVITATION_CONFIG } from '../invitationConfig';
 
 export const Navbar = ({
-  onOpenShare,
   residenceName = INVITATION_CONFIG.residenceName
 }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -88,15 +87,6 @@ export const Navbar = ({
           <div className="flex items-center gap-2 sm:gap-2.5">
             <AudioAmbience />
 
-            <button
-              onClick={onOpenShare}
-              title="Share Invitation"
-              className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full emerald-glass gold-card-border hover:bg-[#0e3d32] text-[#faf7f2] transition-colors cursor-pointer"
-              aria-label="Share Invitation"
-            >
-              <Share2 className="w-3.5 h-3.5 text-[#d4b274]" />
-            </button>
-
             <a
               href="#rsvp"
               className="luxury-btn-primary hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#c9a86a] via-[#e5cb9b] to-[#bfa063] text-[#052019] text-xs font-semibold tracking-wider uppercase shadow hover:shadow-[0_0_15px_rgba(212,178,116,0.4)] cursor-pointer"
@@ -145,18 +135,7 @@ export const Navbar = ({
               ))}
             </nav>
 
-            <div className="flex flex-col sm:flex-row items-center gap-3 pt-3 w-full">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenShare();
-                }}
-                className="luxury-btn-secondary min-h-[46px] w-full flex items-center justify-center gap-2 px-5 py-2.5 rounded-full emerald-glass gold-card-border text-xs text-[#d4b274] tracking-wider uppercase font-medium cursor-pointer"
-              >
-                <Share2 className="w-4 h-4" />
-                <span>Share Invitation</span>
-              </button>
-
+            <div className="flex flex-col items-center gap-3 pt-3 w-full">
               <a
                 href="#rsvp"
                 onClick={handleLinkClick}
